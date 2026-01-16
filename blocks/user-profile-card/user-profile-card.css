@@ -1,0 +1,46 @@
+@import '../../scripts/profile/profile.css';
+
+.user-profile-card-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.user-profile-card {
+  max-width: 318px;
+  width: 100%;
+}
+
+body.profile .user-profile-card:not(.sign-up-flow-section .user-profile-card) {
+  max-width: none;
+}
+
+.user-profile-card-box {
+  background: var(--spectrum-gray-50);
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgb(0 0 0 / 5%);
+  box-sizing: border-box;
+  min-height: 488px;
+  padding: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 600px) {
+  .user-profile-card-box {
+    width: 387px;
+  }
+
+  body.profile .user-profile-card-box:not(.sign-up-flow-section .user-profile-card-box) {
+    width: auto;
+  }
+
+  .user-profile-card {
+    max-width: 387px;
+  }
+
+  body.profile .user-profile-card:not(.sign-up-flow-section .user-profile-card) {
+    max-width: none;
+  }
+}

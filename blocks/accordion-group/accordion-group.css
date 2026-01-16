@@ -1,0 +1,30 @@
+@import '../shade-box/shade-box.css';
+@import '../accordion/accordion.css';
+
+/* inside accordion group we can have text below first div */
+.accordion-group > .accordion details div {
+  font-size: var(--exlm-font-size-content);
+  line-height: var(--exlm-line-height-h4);
+  margin-left: 14px;
+  margin-top: 14px;
+}
+
+/* override /docs font size */
+.accordion-group > .accordion details summary {
+  font-size: var(--spectrum-font-size-200);
+  line-height: var(--exlm-line-height-h4);
+}
+
+.accordion-group > .accordion details div:not(:has(*)) {
+  font-family: var(--body-font-family);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--exlm-font-size-content);
+  font-style: normal;
+  line-height: normal;
+  margin-top: 14px;
+}
+
+/* Course specific css */
+.courses .accordion-group > .accordion details div:not(:has(*)) {
+  color: var(--text-color);
+}

@@ -1,0 +1,159 @@
+.media.block {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.media.block > .image {
+  order: 0;
+}
+
+.media.block > .image img,
+.media.block > .image picture {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.media.block > .text {
+  padding: 15px 0;
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.media.block > .text > .eyebrow {
+  font-family: var(--body-font-family);
+  font-size: var(--spectrum-font-size-75);
+  font-weight: var(--font-weight-bold);
+  color: var(--spectrum-gray-700);
+  line-height: 18px;
+  margin-bottom: var(--spectrum-spacing-100);
+}
+
+.media.block > .text > .title {
+  font-family: var(--body-font-family);
+  font-size: var(--spectrum-font-size-600);
+  font-weight: var(--font-weight-bold);
+  line-height: 30px;
+  margin-bottom: var(--spectrum-spacing-100);
+  color: var(--spectrum-gray-800);
+}
+
+.media.block > .text > .title :where(h1, h2, h3, h4, h5) {
+  margin: 0;
+  color: inherit;
+}
+
+.media.block > .text > .description,
+.media.block > .text > .description *:not(a) {
+  font-family: var(--body-font-family);
+  font-size: var(--spectrum-body-size-m);
+  line-height: 24px;
+  color: var(--spectrum-gray-800);
+}
+
+.media.block > .text > .cta {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--spectrum-spacing-400);
+  margin-top: var(--spectrum-spacing-400);
+  padding: 0;
+}
+
+.media.block > .text > .cta > a {
+  margin: 0;
+}
+
+.media.block > .text > .cta:empty {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  /* the block */
+  .media.block {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .media.block > .image {
+    margin: 0;
+    margin-right: 20px;
+  }
+
+  .media.block > .image picture,
+  .media.block > .image img {
+    object-fit: contain;
+    max-width: 370px;
+    max-height: 278px;
+  }
+
+  .media.block.right > .image {
+    order: 1;
+    margin: 0;
+    margin-left: auto;
+  }
+
+  .media.block > .text {
+    padding: var(--spectrum-spacing-400) 0;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  .media.block.right > .text {
+    order: 0;
+    margin-right: 20px;
+  }
+
+  /* the cta buttons are smaller non-mobile */
+  .media.block .text > .cta > a.button {
+    margin: 0;
+    font-family: var(--body-font-family);
+    font-size: var(--spectrum-font-size-100);
+    font-weight: var(--font-weight-bold);
+    line-height: 15px;
+    padding: 5px 14px 6px;
+  }
+}
+
+/* when enough width set fixed image size */
+@media (min-width: 900px) {
+  .media.block {
+    gap: 0;
+  }
+
+  .media.block > .image picture,
+  .media.block > .image img {
+    object-fit: cover;
+    width: unset;
+    max-width: 490px;
+    max-height: 368px;
+  }
+}
+
+/* larger font size above 1200px */
+@media (min-width: 1200px) {
+  .media.block > .text > .description,
+  .media.block > .text > .description *:not(a) {
+    font-size: var(--spectrum-body-size-l);
+    line-height: 23.4px;
+  }
+
+  /* the eybrow title */
+  .media.block > .text > .eyebrow {
+    font-size: var(--spectrum-heading-size-xxs);
+    line-height: 21px;
+  }
+
+  /* the main title */
+  .media.block > .text > .title {
+    font-size: var(--spectrum-heading-size-l);
+    line-height: 42px;
+  }
+}
